@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://johnphilip.dev/</loc><lastmod>2026-10-29</lastmod></url>
-  <url><loc>https://johnphilip.dev/research.html</loc><lastmod>2026-10-29</lastmod></url>
-  <url><loc>https://johnphilip.dev/projects/mystudysidekick.html</loc><lastmod>2026-10-29</lastmod></url>
-  <url><loc>https://johnphilip.dev/projects/poscholars.html</loc><lastmod>2026-10-29</lastmod></url>
-  <url><loc>https://johnphilip.dev/projects/animal-game.html</loc><lastmod>2026-10-29</lastmod></url>
-  <url><loc>https://johnphilip.dev/projects/mitrawriter.html</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://johnphilip.dev/research</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://johnphilip.dev/projects/mystudysidekick</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://johnphilip.dev/projects/poscholars</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://johnphilip.dev/projects/animal-game</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://johnphilip.dev/projects/mitrawriter</loc><lastmod>2026-10-29</lastmod></url>
 </urlset>
