@@ -1,0 +1,172 @@
+\documentclass[letterpaper,10pt]{article}
+
+% ---------- Page & fonts ----------
+\usepackage[left=0.75in, right=0.75in, top=0.6in, bottom=0.6in]{geometry}
+\usepackage{fontawesome} % v4: fontawesome5 crashes Tectonic
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{linkblue}{RGB}{0,0,238}
+\hypersetup{
+  colorlinks=true, urlcolor=linkblue, linkcolor=linkblue,
+  pdftitle={Philip Obhenimen John - CV},
+  pdfauthor={Philip Obhenimen John},
+  pdfsubject={Curriculum Vitae}
+}
+
+\pagestyle{plain}
+\setlength{\parindent}{0pt}
+\linespread{1.0}
+\hyphenation{ParaView OpenAI OpenSMOKE Gaussian Poscholars MyStudySidekick Whisper}
+
+% ---------- Section style: big caps heading + full-width rule ----------
+\titleformat{\section}{\Large\bfseries\uppercase}{}{0pt}{}[\vspace{-9pt}\rule{\textwidth}{0.6pt}]
+\titlespacing*{\section}{0pt}{9pt}{3pt}
+
+% ---------- Lists ----------
+\setlist[itemize]{leftmargin=26pt, itemsep=1pt, topsep=4pt, parsep=0pt, partopsep=0pt}
+
+% ---------- Helpers ----------
+% \entry{Title}{Organization}{Dates}
+\newcommand{\entry}[3]{\textbf{#1} $|$ #2 \hfill #3\par}
+\newcommand{\sep}{\enspace$|$\enspace}
+
+\begin{document}
+
+% ================= HEADER =================
+\begin{center}
+  {\fontsize{24}{28}\selectfont\bfseries PHILIP OBHENIMEN JOHN}\\[5pt]
+  \faEnvelope\ \href{mailto:philipobhenimen@gmail.com}{philipobhenimen@gmail.com}\sep
+  \faMapMarker\ Baton Rouge, LA\sep
+  \faPhone\ +1 225-476-6722\\[2pt]
+  \faLinkedinSquare\ \href{https://www.linkedin.com/in/john-philip-691905167/}{linkedin.com/in/john-philip-691905167}\sep
+  \faGraduationCap\ \href{https://scholar.google.com/citations?user=fSWBA-IAAAAJ&hl=en}{Google Scholar}\sep
+  \faGlobe\ \href{https://johnphilip.dev}{johnphilip.dev}
+\end{center}
+
+% ================= HIGHLIGHTS =================
+\section{Highlights}
+\textbf{Computational combustion and scientific machine learning researcher} with expertise in
+\textbf{CFD of multiphase turbulent reacting flows}, \textbf{reduced-order modeling with chemical reactor networks},
+and the \textbf{machine learning}, \textbf{deep learning}, \textbf{diffusion models}, and \textbf{agentic AI} that make
+high-fidelity simulation fast enough for design. First author of \textbf{two peer-reviewed journal papers}; built
+reactor-network models that run \textbf{over 1,000$\times$ faster than CFD}. Also an experienced
+\textbf{software engineer} who has shipped production AI and mobile apps used by \textbf{40,000+ students}.
+Available full-time from \textbf{Spring 2027}.
+
+% ================= EDUCATION =================
+\section{Education}
+\entry{PhD in Mechanical Engineering}{Louisiana State University $|$ GPA: 3.95}{2022 - 2027 (expected)}
+\textit{Dissertation}: Liquid-Fueled Reactor Network Modeling for Gas Turbine Combustors\par
+\vspace{3pt}
+\entry{BEng in Mechanical Engineering}{University of Benin, Nigeria $|$ CGPA: 4.83/5.0}{10/2014 - 12/2019}
+
+% ================= EXPERIENCE =================
+\section{Experience}
+\entry{Graduate Research Assistant}{\href{https://dmo-lab.com}{DMO Lab}, Louisiana State University, LA}{01/2022 - present}
+Advisor: Dr.\ Ope Owoyele
+\begin{itemize}
+  \item Developed the \textbf{Liquid-Fueled Reactor Network (LFRN)}, to our knowledge the first coupled reactor-network
+        framework for liquid-fueled combustors, adding spray breakup, droplet heating, and evaporation reactors; substantially
+        reduced NO$_x$ error vs.\ gaseous networks and ran in $\mathcal{O}(10)$\,s on one core, \textbf{$\sim$2,300$\times$ faster}
+        than 256-core CFD (first author, \textit{Combustion and Flame}).
+  \item Trained \textbf{reinforcement-learning agents} that treat reactor-network construction as a sequential decision
+        problem, clustering CFD fields automatically and improving lean-blowout prediction over hand-built networks
+        (first author, \textit{Proceedings of the Combustion Institute}).
+  \item Built \textbf{multi-fidelity Gaussian-process surrogates} (NARGP) fusing 400 reactor-network and 35 CFD runs to
+        predict outlet temperature and six species; with only 7 CFD points, matched the accuracy a standard GP needs 14 for,
+        lifting mean $R^2$ from 0.75 to 0.92, and identified where negative transfer occurs.
+  \item Ran \textbf{RANS and large-eddy simulations (LES)} of swirl-stabilized, liquid-fueled combustors; RANS of a \textbf{Jet-A combustor in CONVERGE}: $k$-$\varepsilon$, flamelet-generated manifold
+        chemistry with presumed $\beta$-PDF, Lagrangian sprays (TAB breakup, Frossling evaporation), and AMR to $\sim$3.2M cells;
+        coupled networks to \textbf{Cantera} with HyChem Jet-A kinetics (119 species, 841 reactions).
+  \item Developing a \textbf{diffusion model} that reconstructs high-resolution LES flow and species fields from
+        reactor-network data (ongoing PhD project).
+  \item Designed automated, parallel \textbf{HPC pipelines} on LSU's SuperMike-3 cluster (SLURM, MPI) linking simulation,
+        data extraction, model construction, and ML training; trained \textbf{neural networks} for NO$_x$ prediction and built
+        FGM tabulation pipelines with OpenSMOKE++.
+\end{itemize}
+
+\entry{Software Engineer}{MyStudySidekick}{2025 - present}
+AI study platform for college STEM students, live on iOS, Android, web, and desktop
+\begin{itemize}
+  \item Built the \textbf{AI pipeline end to end}: ingestion of PDFs, slides, YouTube captions, and audio (Whisper), chunking,
+        embeddings, retrieval, and LLM generation of summaries, quizzes, flashcards, and study plans.
+  \item Built an \textbf{agentic backend} in which LLM agents use \textbf{verification tools} and reusable \textbf{skills} to check
+        generated summaries, quizzes, flashcards, and solutions before they reach students.
+  \item Built the \textbf{Go backend} (net/http, PostgreSQL via pgx, Goose migrations, Cloudflare R2) and a local-first,
+        offline-capable \textbf{React Native/Expo} client with SQLite sync across phone, tablet, and \textbf{Tauri} desktop.
+  \item Built a SymPy/SciPy computation service for step-by-step STEM problem solving; own deployment, releases,
+        and production debugging.
+\end{itemize}
+
+\entry{Co-founder and Lead Developer}{Poscholars, Nigeria}{04/2021 - present}
+\begin{itemize}
+  \item Built and shipped a mobile learning app serving \textbf{40,000+ students} across multiple universities
+        (App Store rating 4.5), with a NestJS backend and CI/CD release pipeline; 20 releases since launch.
+  \item Added \textbf{AI chat over uploaded course files}, AI flashcards, and a course builder; wrote native
+        \textbf{Swift and Kotlin} modules, including native SVG math rendering that replaced a slow WebView path.
+\end{itemize}
+
+\entry{Teaching Assistant}{Louisiana State University, LA}{2022 - present}
+\begin{itemize}
+  \item Thermodynamics, Fluid Mechanics, and Heat Transfer: recitations, laboratory demonstrations, and mentoring
+        undergraduates on research and senior design.
+\end{itemize}
+
+\entry{AI Research Intern}{Xigma Input and Output Technology, Nigeria}{03/2018 - 09/2018}
+\begin{itemize}
+  \item Developed Python machine-learning models for engineering prediction and optimization; implemented numerical
+        PDE solvers in Python and MATLAB.
+\end{itemize}
+
+% ================= PROJECTS =================
+\section{Projects}
+\begin{itemize}
+  \item \textbf{Mitrawriter} (public beta planned 12/2026): agentic desktop research environment for scientists with
+        cross-paper chat, citation-aware LaTeX writing, code-to-paper integration, and slide and thesis assembly on a reusable RAG core.
+  \item \textbf{Animal Game} (iOS and Android): animal quiz game with 495 animals across six categories and six game modes,
+        published by Poscholars.
+\end{itemize}
+
+% ================= SKILLS =================
+\section{Skills}
+\textbf{Combustion \& CFD:} CONVERGE, ANSYS Fluent, OpenFOAM, Cantera, OpenSMOKE++, ParaView; RANS, LES, sprays, turbulent combustion, chemical kinetics, FGM.\par
+\textbf{Scientific ML:} PyTorch, TensorFlow, scikit-learn, emukit; diffusion models, reinforcement learning, Gaussian processes, multi-fidelity surrogates, neural networks.\par
+\textbf{Agentic AI:} Agentic workflows, tool use, verification tools, skills, retrieval-augmented generation, embeddings, LLM APIs (Gemini, OpenAI), Whisper.\par
+\textbf{HPC:} MPI, OpenMP, SLURM, Linux, parallel Python pipelines, Git, CI/CD.\par
+\textbf{Software:} Go, PostgreSQL, SQLite, NestJS, React Native/Expo, React, Tauri, Cloudflare R2.\par
+\textbf{Languages:} Python, C++, Go, TypeScript/JavaScript, Rust, Swift, Kotlin, MATLAB, SQL.\par
+
+% ================= PUBLICATIONS =================
+\section{Publications}
+\begin{itemize}
+  \item \textbf{P. John}, E. Ikponmwoba, P. Pal, O. Owoyele, \textit{``A reinforcement-learning-augmented liquid-fueled reactor
+        network model for predicting lean blowout in gas turbine combustors''},
+        \href{https://doi.org/10.1016/j.proci.2026.106463}{Proc. Combust. Inst. 42 (2026) 106463}.
+  \item \textbf{P. John}, H. Chandrasekhar, S. Saha, O. Owoyele, \textit{``A liquid-fueled reactor network model for enhanced
+        NO$_x$ prediction in gas turbine combustors''},
+        \href{https://doi.org/10.1016/j.combustflame.2026.115199}{Combust. Flame 292 (2026) 115199}.
+  \item \textbf{P. John}, O. Owoyele, \textit{``Multi-fidelity Gaussian-process surrogates for data-efficient prediction of
+        gas-turbine combustor emissions''}, in preparation.
+\end{itemize}
+
+% ================= AWARDS =================
+\section{Awards}
+\begin{itemize}
+  \item Best Graduating Student, University of Benin (2019) - CGPA 4.83/5.0, First Class Honours.
+  \item Winner, Edo State/Siemens Energy Hackathon (2019).
+  \item 2nd Place Team, Hult Prize Nigeria National Finals (2018).
+  \item United Nations Academic Impact Millennium Fellow (2018).
+  \item National Merit Scholarship (2015).
+\end{itemize}
+
+% ================= SERVICE =================
+\section{Service and Mentoring}
+\begin{itemize}
+  \item Peer Reviewer, \textit{Combustion and Flame} and \textit{Journal of Energy Resources Technology}.
+  \item Mentor, LSU Mechanical Engineering - Advise undergraduates on research and senior design projects.
+\end{itemize}
+
+\end{document}

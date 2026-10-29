@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# LaTeX / Tectonic build artifacts (the CV PDF in assets/docs/ IS committed)
+*.aux
+*.log
+*.out
+*.xdv
+*.synctex.gz
+/Philip_Obhenimen_John_CV.pdf
+
+# Raw source media: keep originals outside the repo, commit only compressed web versions
+/*.mp4
+/*.mov
+
+# Editors
+.vscode/
+.idea/

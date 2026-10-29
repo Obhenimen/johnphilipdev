@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research: Combustion CFD, Reduced-Order Modeling &amp; Scientific ML — Philip Obhenimen John</title>
+  <meta name="description" content="PhD research: CFD of liquid-fueled gas-turbine combustors, liquid-fueled reactor networks (LFRN), reinforcement learning, multi-fidelity Gaussian processes, and diffusion models for combustion.">
+  <link rel="canonical" href="https://johnphilip.dev/research.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://johnphilip.dev/research.html">
+  <meta property="og:title" content="Research: Combustion CFD, Reduced-Order Modeling &amp; Scientific ML — Philip Obhenimen John">
+  <meta property="og:description" content="PhD research: CFD of liquid-fueled gas-turbine combustors, liquid-fueled reactor networks (LFRN), reinforcement learning, multi-fidelity Gaussian processes, and diffusion models for combustion.">
+  <meta property="og:image" content="https://johnphilip.dev/assets/img/les-vs-reactor-network-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#c2410c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23c2410c%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-family=%27Georgia,serif%27 font-size=%2728%27 font-style=%27italic%27 text-anchor=%27middle%27 fill=%27white%27%3EPJ%3C/text%3E%3C/svg%3E">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="index.html">POJ</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="research.html" aria-current="page">Research</a></li>
+        <li><a href="index.html#expertise">Expertise</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#projects">Software</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#news">News</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <section class="page-hero">
+      <a class="back-link" href="index.html#research">← Back to home</a>
+      <p class="eyebrow">PhD Research · <a href="https://dmo-lab.com/" target="_blank" rel="noopener">DMO Lab</a>, LSU · 2022 – Present</p>
+      <h1>Combustion simulation, reduced-order modeling &amp; <em class="accent">scientific ML</em></h1>
+      <p class="hero-tagline">
+        Dissertation: <em>Liquid-Fueled Reactor Network Modeling for Gas Turbine Combustors</em>.
+        Advisor: Dr. Ope Owoyele, <a href="https://dmo-lab.com/" target="_blank" rel="noopener">Data-driven Modeling and Optimization (DMO) Lab</a>.
+      </p>
+    </section>
+
+    <figure class="media-figure">
+      <video src="assets/video/les-vs-reactor-network.mp4" poster="assets/img/les-vs-reactor-network-poster.jpg"
+             width="1280" height="960" data-autoplay muted loop playsinline preload="none"
+             aria-label="Side-by-side temperature fields from a large-eddy simulation and a reactor network model"></video>
+      <figcaption>
+        My large-eddy simulation (top, 18,400 CPU-hours) next to my reactor-network model of the same
+        combustor (bottom, 0.09 CPU-hours).
+      </figcaption>
+    </figure>
+
+    <article class="prose">
+      <h2>The problem</h2>
+      <p>
+        Emissions limits on NO<sub>x</sub> and CO, and the push toward alternative and sustainable
+        fuels, make emissions prediction a first-order constraint in gas-turbine design. CFD with
+        tabulated chemistry is the most trusted predictive tool, but a single RANS simulation of a
+        combustor costs hours to days on hundreds of cores, far too slow to sweep a design space.
+      </p>
+      <p>
+        My work attacks this from both sides: <strong>physics-based reduced-order models</strong> that
+        keep detailed chemistry at a fraction of the cost, and <strong>machine learning</strong> that
+        builds, corrects, and enriches those models using scarce high-fidelity data.
+      </p>
+
+      <h2 id="cfd">1. High-fidelity combustor CFD</h2>
+      <p>
+        I run both RANS and large-eddy simulations (LES) of swirl-stabilized, liquid-fueled gas-turbine
+        combustors, capturing the full chain from fuel injection through spray breakup, evaporation,
+        mixing, and turbulent combustion. The RANS campaign of a Jet-A can combustor in CONVERGE
+        drives the reactor-network work; the LES provide high-resolution reference fields, like the
+        one in the video above.
+      </p>
+      <ul>
+        <li><strong>Turbulence and combustion:</strong> RANS with standard k-ε closure; flamelet-generated manifold (FGM) chemistry with a presumed β-PDF for turbulence–chemistry interaction, and a separate NO progress variable for slow NO<sub>x</sub> chemistry.</li>
+        <li><strong>Sprays:</strong> Lagrangian discrete-droplet tracking, Taylor Analogy Breakup (TAB) for primary and secondary breakup, Frossling evaporation, and Rosin-Rammler size distribution.</li>
+        <li><strong>Numerics:</strong> adaptive mesh refinement from 3.5 mm down to 0.44 mm in high-gradient regions, about 3.2 million cells, roughly 10 hours on 256 cores.</li>
+      </ul>
+      <figure class="media-figure">
+        <video src="assets/video/combustor-3d.mp4" poster="assets/img/combustor-3d-poster.jpg"
+               width="1280" height="800" data-autoplay muted loop playsinline preload="none"
+               aria-label="3D volume rendering of temperature and fuel spray inside a liquid-fueled combustor"></video>
+        <figcaption>3D temperature field and fuel spray in a liquid-fueled gas-turbine combustor.</figcaption>
+      </figure>
+
+      <h2 id="lfrn">2. Liquid-Fueled Reactor Network (LFRN)</h2>
+      <p><span class="badge">First author · Combustion and Flame, 2026</span></p>
+      <p>
+        Reactor networks replace millions of CFD cells with a small graph of idealized chemical
+        reactors. Existing methods assume gaseous fuel. I developed what is, to our knowledge, the
+        first truly coupled reactor-network framework for liquid-fueled combustors.
+      </p>
+      <ul>
+        <li><strong>Data-driven zoning:</strong> k-means clustering of CFD fields defines reactors that map onto physical regimes: spray breakup, mixing, two flame zones, two recirculation zones, and post-flame.</li>
+        <li><strong>New spray reactors:</strong> an evaporator/breakup reactor and a mixer reactor that model droplet breakup, heating, and evaporation directly inside the network, alongside conventional perfectly stirred and plug-flow reactors.</li>
+        <li><strong>Detailed chemistry:</strong> Cantera with the HyChem Jet-A mechanism (119 species, 841 reactions), resolving thermal, prompt, and N<sub>2</sub>O-intermediate NO<sub>x</sub> pathways.</li>
+        <li><strong>Validation:</strong> against CFD across inlet air temperatures of 300–500 K and multiple fuel flow rates. The LFRN substantially reduces NO<sub>x</sub> error compared with a gaseous reactor network while keeping outlet temperature accurate, and converges toward CFD as clusters are added, with diminishing returns beyond 9.</li>
+        <li><strong>Speed:</strong> O(10) s on a single CPU core. The 7-cluster network is about 2,300× faster than the 256-core CFD; the 11-cluster network finishes in 35.8 s.</li>
+      </ul>
+      <p><a href="https://doi.org/10.1016/j.combustflame.2026.115199" target="_blank" rel="noopener">Read the paper →</a></p>
+
+      <h2 id="rl">3. Reinforcement learning for automated model construction</h2>
+      <p><span class="badge">First author · Proceedings of the Combustion Institute, 2026</span></p>
+      <p>
+        Building a good reactor network has traditionally required expert judgment. I framed
+        network construction as a sequential decision problem and trained reinforcement-learning
+        agents to optimize how CFD fields are clustered into reactors. The RL-built networks predict
+        lean blowout better than manually constructed ones.
+      </p>
+      <p><a href="https://doi.org/10.1016/j.proci.2026.106463" target="_blank" rel="noopener">Read the paper →</a></p>
+
+      <h2 id="mfgp">4. Multi-fidelity Gaussian-process surrogates</h2>
+      <p><span class="badge">First author · In preparation</span></p>
+      <p>
+        Reactor networks are fast but biased; CFD is accurate but scarce. I asked: given a fixed
+        CFD budget, does fusing abundant reactor-network data with scarce CFD through a multi-fidelity
+        Gaussian process give a better emissions surrogate, and for which quantities?
+      </p>
+      <ul>
+        <li><strong>Setup:</strong> two inputs (fuel mass flow, air inlet temperature) and seven outputs (outlet temperature and NO, NO<sub>2</sub>, OH, CO, CO<sub>2</sub>, H<sub>2</sub>O), using 35 CFD points and 400 LFRN points. A high-fidelity GP is compared with a nonlinear autoregressive multi-fidelity GP (NARGP), averaged over 30 random splits at each of nine training fractions.</li>
+        <li><strong>Data efficiency:</strong> with only 7 CFD points, the multi-fidelity GP matches the accuracy a standard GP needs 14 for, lifting mean R² from 0.75 to 0.92 (outlet temperature 0.87 → 0.98, NO<sub>2</sub> 0.36 → 0.75).</li>
+        <li><strong>Negative transfer:</strong> the benefit is species-dependent. Because the LFRN's CO prediction is biased, fusing it degrades the CO surrogate. The paper gives practical guidance on when cheap low-fidelity data is worth fusing.</li>
+      </ul>
+
+      <h2 id="diffusion">5. Diffusion models for flow-field reconstruction</h2>
+      <p><span class="badge">Ongoing PhD project · In progress</span></p>
+      <p>
+        Reactor networks give zone-averaged answers. One of the final projects of my PhD uses a diffusion model to
+        reconstruct high-resolution LES flow and species fields from reactor-network data,
+        recovering spatially resolved detail from a model that runs at a small fraction of LES cost.
+      </p>
+      <figure class="media-figure is-portrait">
+        <video src="assets/video/temperature-field.mp4" poster="assets/img/temperature-field-poster.jpg"
+               width="640" height="858" data-autoplay muted loop playsinline preload="none"
+               aria-label="Evolving temperature field above a burner nozzle"></video>
+        <figcaption>Evolving temperature field from one of my high-fidelity simulations of a burner flame.</figcaption>
+      </figure>
+
+      <h2 id="hpc">6. HPC pipelines, neural networks &amp; chemistry tabulation</h2>
+      <ul>
+        <li>Parallel, automated Python pipelines on LSU's SuperMike-3 cluster (SLURM, MPI) linking simulation, data extraction, model construction, and ML training.</li>
+        <li>Large parametric NO<sub>x</sub> and lean-blowout campaigns.</li>
+        <li>Neural networks that predict NO<sub>x</sub> from reduced-order model outputs.</li>
+        <li>Flamelet-generated manifold pipelines with OpenSMOKE++ that compress detailed chemistry into low-dimensional lookup tables.</li>
+      </ul>
+
+      <h2>Tools</h2>
+      <ul class="tags">
+        <li class="tag">CONVERGE</li><li class="tag">ANSYS Fluent</li><li class="tag">OpenFOAM</li>
+        <li class="tag">Cantera</li><li class="tag">OpenSMOKE++</li><li class="tag">ParaView</li>
+        <li class="tag">PyTorch</li><li class="tag">TensorFlow</li><li class="tag">scikit-learn</li>
+        <li class="tag">emukit</li><li class="tag">MPI</li><li class="tag">OpenMP</li>
+        <li class="tag">SLURM</li><li class="tag">Python</li><li class="tag">C++</li>
+      </ul>
+
+      <h2>Service &amp; teaching</h2>
+      <ul>
+        <li>Peer reviewer for <em>Combustion and Flame</em> and the <em>Journal of Energy Resources Technology</em>.</li>
+        <li>Teaching assistant for Thermodynamics, Fluid Mechanics, and Heat Transfer, mentoring undergraduates on research and senior design.</li>
+      </ul>
+    </article>
+
+    <p style="margin-block:40px 56px"><a class="btn" href="index.html#publications">See publications →</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span data-year>2026</span> Philip Obhenimen John</span>
+      <a href="index.html">Home</a>
+    </div>
+  </footer>
+</body>
+</html>
