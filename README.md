@@ -11,7 +11,7 @@ projects/
   mystudysidekick.html     Case study
   poscholars.html          Case study
   animal-game.html         Case study
-  mitrawriter.html         Case study (beta Dec 2026)
+  mitralibrary.html        Case study (Mitra Library, released Nov 2026)
 css/styles.css             All styles, mobile-first, light/dark themes
 js/main.js                 Mobile menu, theme toggle, scroll reveal, video autoplay, back-to-top
 assets/
